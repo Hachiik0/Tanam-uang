@@ -4,6 +4,7 @@ import 'package:uuid/uuid.dart';
 import 'package:flutter_application_1/models/transaction_model.dart';
 import 'halamanutama.dart';
 import '/widgets/kalkulator.dart';
+import 'package:flutter_application_1/edittransactionpage.dart';
 
 class AddEditTransactionPage extends StatefulWidget {
   final TransactionType transactionType;

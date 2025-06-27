@@ -134,8 +134,8 @@ class _HutangPageState extends State<HutangPage> {
                           : '+';
                   final String typeLabel =
                       transaction.type == DebtTransactionType.giving
-                          ? 'Hutang'
-                          : 'Piutang';
+                          ? 'Piutang'
+                          : 'Hutang';
 
                   return Card(
                     margin: const EdgeInsets.only(bottom: 10),
@@ -188,10 +188,20 @@ class _HutangPageState extends State<HutangPage> {
                               color: amountColor,
                             ),
                           ),
-                          const Icon(
-                            Icons.arrow_forward_ios,
-                            size: 16,
-                            color: Colors.grey,
+                          IconButton(
+                            icon: const Icon(Icons.delete, color: Colors.red),
+                            onPressed: () {
+                              setState(() {
+                                _debtTransactions.removeAt(index);
+                              });
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text(
+                                    'Transaksi hutang berhasil dihapus.',
+                                  ),
+                                ),
+                              );
+                            },
                           ),
                         ],
                       ),
